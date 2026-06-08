@@ -1,0 +1,105 @@
+class SinglyLinkedListNode {
+    int data;
+    SinglyLinkedListNode next;
+
+    SinglyLinkedListNode(int data) {
+        this.data = data;
+        this.next = null;
+    }
+
+    public static void printLinkedList(SinglyLinkedListNode head) {
+        while (head != null) {
+            System.out.print(head.data + " ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+    public static SinglyLinkedListNode insertNodeAtHead(SinglyLinkedListNode head, int data) {
+        SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
+        newNode.next = head;
+        return newNode;
+    }
+
+    public static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
+        SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
+
+        if (head == null) {
+            return newNode;
+        }
+
+        SinglyLinkedListNode temp = head;
+
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        temp.next = newNode;
+
+        return head;
+    }
+
+    public static SinglyLinkedListNode insertNodeAtPosition(
+            SinglyLinkedListNode head, int data, int position) {
+
+        SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
+
+        if (position == 0) {
+            newNode.next = head;
+            return newNode;
+        }
+
+        SinglyLinkedListNode temp = head;
+
+        for (int i = 0; i < position - 1; i++) {
+            temp = temp.next;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+
+        return head;
+    }
+
+    public static boolean compareLists(
+            SinglyLinkedListNode head1,
+            SinglyLinkedListNode head2) {
+
+        while (head1 != null && head2 != null) {
+
+            if (head1.data != head2.data) {
+                return false;
+            }
+
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+
+        return head1 == null && head2 == null;
+    }
+
+    public static void main(String[] args) {
+
+        SinglyLinkedListNode head = null;
+
+        head = insertNodeAtHead(head, 20);
+        head = insertNodeAtHead(head, 10);
+
+        head = insertNodeAtTail(head, 30);
+        head = insertNodeAtTail(head, 40);
+
+        head = insertNodeAtPosition(head, 25, 2);
+
+        System.out.println("Linked List:");
+        printLinkedList(head);
+
+        SinglyLinkedListNode head2 = null;
+        head2 = insertNodeAtTail(head2, 10);
+        head2 = insertNodeAtTail(head2, 20);
+        head2 = insertNodeAtTail(head2, 25);
+        head2 = insertNodeAtTail(head2, 30);
+        head2 = insertNodeAtTail(head2, 40);
+
+        System.out.println("Are lists equal? " + compareLists(head, head2));
+    }
+}
