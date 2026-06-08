@@ -74,7 +74,7 @@ ListNode t = head;
         }
 
         return r;
-
+------------------------------------------------
 3.Remove Nth Node From End of List
 
 ListNode dummy = head;
@@ -101,7 +101,7 @@ ListNode dummy = head;
 
         
         return head;
-
+------------------------------------------------
 4.Reverse Linked List
 
 ListNode dummy=head;
@@ -122,7 +122,7 @@ ListNode dummy=head;
         }
 
         return last;
-
+------------------------------------------------
 5.Linked List Cycle
 
 ListNode t=head;
@@ -136,3 +136,5 @@ ListNode t=head;
             }
         }
         return false;
+
+------------------------------------------------
