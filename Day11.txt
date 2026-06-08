@@ -63,4 +63,14 @@ String a="";
 
         return Add;
 ------------------------------------------------
+2.Middle of the Linked List
 
+ListNode t = head;
+        ListNode r=head;
+
+        while(t!=null && t.next!= null){
+            r=r.next;
+            t=t.next.next;
+        }
+
+        return r;
