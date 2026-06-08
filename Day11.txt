@@ -122,3 +122,17 @@ ListNode dummy=head;
         }
 
         return last;
+
+5.Linked List Cycle
+
+ListNode t=head;
+        ListNode r=head;
+        while(r!=null && r.next!=null){
+            t=t.next;
+            r=r.next.next;
+
+            if(t==r){
+                return true;
+            }
+        }
+        return false;
