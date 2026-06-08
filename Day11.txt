@@ -1,0 +1,66 @@
+----------------LEETCODE------------------------
+
+1.Add Two Numbers - LeetCode
+
+String a="";
+        String b="";
+        ListNode A=l1;
+        ListNode B=l2;
+
+        ListNode Add=new ListNode();
+        ListNode temp=Add;
+        ListNode samp=Add;
+        while(A!=null){
+            a+=(char) (A.val+'0');
+            A=A.next;
+        }
+        while(B!=null){
+            b+=(char) (B.val+'0');
+            B=B.next;
+        }
+       
+        int i=0;
+        int j=0;
+        int carry=0;
+
+        while(a.length()>i || b.length()>j){
+            int n1=0;
+            int n2=0;
+            if (i < a.length()) {
+                n1 = a.charAt(i) - '0'; 
+                i++;
+            }
+            if (j < b.length()) {
+                n2 = b.charAt(j) - '0'; 
+                j++;
+            }
+            
+            int res = n1+n2+carry;
+            int k=0;
+            if(res>9){
+                carry=res/10;
+                k=res%10;
+            }
+            else{
+                k=res;
+                carry=0;
+            }
+
+            temp.val=k;
+            ListNode Z=new ListNode();
+            temp.next=Z;
+            temp=temp.next;
+        }
+        while(samp.next!=temp){
+            samp=samp.next;
+        }
+        if(carry>0){
+            samp.next.val=carry;
+        }else{
+            samp.next=null;
+        }
+        
+
+        return Add;
+------------------------------------------------
+
