@@ -74,3 +74,30 @@ ListNode t = head;
         }
 
         return r;
+
+3.Remove Nth Node From End of List
+
+ListNode dummy = head;
+        int count=0;
+        ListNode temp=head;
+        while(dummy!=null){
+            count++;
+            dummy=dummy.next;
+        }
+        for(int i=1;i<(count-n);i++){
+            temp=temp.next;
+        }
+        if((count-n)==0){
+            head=head.next;
+            return head;
+        }
+
+        if(temp.next==null){
+            return null;
+        }
+        if(temp.next!=null ){
+        temp.next=temp.next.next;
+        }
+
+        
+        return head;
