@@ -101,3 +101,24 @@ ListNode dummy = head;
 
         
         return head;
+
+4.Reverse Linked List
+
+ListNode dummy=head;
+        ListNode temp=head;
+        ListNode init=null;
+        ListNode last = head;
+
+        while(last!=null && last.next!=null){
+            last=last.next;
+        }
+        while(dummy!=null){
+            dummy = dummy.next;
+            ListNode samp =temp;
+            temp.next=init;
+            init =samp;
+            temp=dummy;
+
+        }
+
+        return last;
