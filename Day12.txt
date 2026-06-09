@@ -144,3 +144,28 @@ class MyLinkedList {
             }
         }
         return true;
+
+3.Swapping Nodes in a Linked List
+
+ListNode dummy =head;
+        ListNode temp=head;
+        ListNode cou=head;
+        int count=0;
+        while(cou!=null){
+            count++;
+            cou=cou.next;
+        }
+
+        for(int i=0;i<k-1;i++){
+            dummy=dummy.next;
+        }
+
+        for(int i=0;i<count-k;i++){
+            temp=temp.next;
+        }
+
+        int value = dummy.val;
+        dummy.val=temp.val;
+        temp.val=value;
+
+        return head;
