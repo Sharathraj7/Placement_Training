@@ -169,3 +169,26 @@ ListNode dummy =head;
         temp.val=value;
 
         return head;
+
+4.Delete Node in a Linked List
+
+ListNode dummy=node;
+        ListNode sample=null;
+        while(dummy.next!=null){
+            dummy.val=dummy.next.val;
+            sample=dummy;
+            dummy=dummy.next;
+        }
+
+        sample.next=null;
+
+5.Convert Binary Number in a Linked List to Integer
+
+ int temp=0;
+        
+        while(head!=null){
+            temp=(temp*2)+head.val;
+            head=head.next;
+        }
+       
+        return temp;
