@@ -1,0 +1,57 @@
+1.Valid Parentheses
+
+ HashMap<Character, Character> map = new HashMap<>();
+
+        map.put(')', '(');
+        map.put('}', '{');
+        map.put(']', '[');
+
+        Stack<Character> stack = new Stack<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            if (map.containsValue(c)) { 
+                stack.push(c);
+            } else { 
+                if (stack.isEmpty() || stack.peek() != map.get(c)) {
+                    return false;
+                }
+                stack.pop();
+            }
+        }
+
+        return stack.isEmpty();
+
+2.Evaluate Reverse Polish Notation
+Stack<Integer> stack =new Stack<>();
+        
+
+        for(int i=0;i<tokens.length;i++){
+            if(tokens[i].equals("+") || tokens[i].equals("-") || tokens[i].equals("*") || tokens[i].equals("/")){
+                int b = stack.pop();
+                int a = stack.pop();
+                String o=tokens[i];
+                int res = calc(a,b,o);
+                stack.push(res);
+            }
+            else{
+                stack.push(Integer.parseInt(tokens[i]));
+            }
+            
+        }
+        return stack.pop();
+    }
+
+    int calc(int a,int b,String o){
+        switch(o){
+            case "+":
+                return a+b;
+            case "-":
+                return a-b;
+            case "*":
+                return a*b;
+            case "/":
+                return a/b;
+        }
+        return 1;
